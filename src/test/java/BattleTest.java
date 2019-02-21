@@ -14,11 +14,11 @@ public class BattleTest {
 
     @Test
     public void givenStringWithMovesThenReturnOutcomeOfBattle(){
-        assertTrue("You won!".equals(unit.fight()) || "You died :(".equals(unit.fight()));
+        assertTrue("You won!".equals(unit.fight("123")) || "You died :(".equals(unit.fight("123")));
     }
 
-    @Test
-    public void givenEmptyStringFromConsoleThenReturnDefaultStringOfMoves(){
-        assertEquals("!default!move!", unit.readFromConsole());
+    @Test(expected = IllegalArgumentException.class)
+    public void givenEmptyStringThenReturnIllegalArgumentException(){
+        unit.fight("");
     }
 }
