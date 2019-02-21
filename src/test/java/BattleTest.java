@@ -17,20 +17,9 @@ public class BattleTest {
         assertTrue("You won!".equals(unit.fight("123!")) || "You died :(".equals(unit.fight("123!")));
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void givenEmptyStringThenReturnIllegalArgumentException(){
-        unit.fight("");
+    @Test
+    public void whenPassIllegalArgumentThenUseDefaultStringOfMovesAndReturnWinningOutcome(){
+        assertEquals("You won!", unit.fight("123qwe"));
+        //assertEquals("You won!", unit.fight(null));
     }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void givenStringWithoutSpecialSymbolsThenReturnIllegalArgumentException(){
-        unit.fight("123qwe");
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void givenNullStringThenReturnIllegalArgumentException(){
-        unit.fight(null);
-    }
-
-
 }
